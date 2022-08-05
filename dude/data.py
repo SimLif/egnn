@@ -2,7 +2,7 @@
 Author: haoqiang haoqiang@mindrank.ai
 Date: 2022-08-05 04:02:19
 LastEditors: haoqiang haoqiang@mindrank.ai
-LastEditTime: 2022-08-05 06:14:18
+LastEditTime: 2022-08-05 07:06:41
 FilePath: /work-home/egnn/dude/data.py
 Description: 
 
@@ -17,4 +17,5 @@ ic(base_dir)
 sys.path.append(base_dir)
 
 class DataUp:
-    pass
+    def __init__(self) -> None:
+        pass
