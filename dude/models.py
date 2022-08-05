@@ -2,7 +2,7 @@
 Author: haoqiang haoqiang@mindrank.ai
 Date: 2022-08-05 02:28:42
 LastEditors: haoqiang haoqiang@mindrank.ai
-LastEditTime: 2022-08-05 03:59:38
+LastEditTime: 2022-08-05 08:22:42
 FilePath: /work-home/egnn/dude/models.py
 Description: 
 
@@ -19,6 +19,7 @@ sys.path.append(base_dir)
 import torch
 from torch import nn
 from models.gcl import E_GCL
+from dude.utils import unsorted_segment_sum
 
 
 class E_GCL_mask(E_GCL):
@@ -104,4 +105,4 @@ class EGNN(nn.Module):
         if label:
             loss = self.loss(sim, label)
 
-        return (smi, loss) if label esle (sim, )
+        return (sim, loss) if label else (sim, )
