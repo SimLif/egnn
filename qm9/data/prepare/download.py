@@ -1,3 +1,13 @@
+'''
+Author: haoqiang haoqiang@mindrank.ai
+Date: 2022-08-03 10:01:27
+LastEditors: haoqiang haoqiang@mindrank.ai
+LastEditTime: 2022-08-03 10:01:48
+FilePath: /work-home/egnn/qm9/data/prepare/download.py
+Description: 
+
+Copyright (c) 2022 by haoqiang haoqiang@mindrank.ai, All Rights Reserved. 
+'''
 import logging
 import os
 
@@ -5,7 +15,7 @@ from qm9.data.prepare.md17 import download_dataset_md17
 from qm9.data.prepare.qm9 import download_dataset_qm9
 
 
-def prepare_dataset(datadir, dataset, subset=None, splits=None, cleanup=True, force_download=False):
+def prepare_dataset(datadir, dataset, subset=None, splits=None, cleanup=False, force_download=False):
     """
     Download and process dataset.
 

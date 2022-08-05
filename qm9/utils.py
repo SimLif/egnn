@@ -1,3 +1,13 @@
+'''
+Author: haoqiang haoqiang@mindrank.ai
+Date: 2022-08-04 07:09:32
+LastEditors: haoqiang haoqiang@mindrank.ai
+LastEditTime: 2022-08-04 07:09:53
+FilePath: /work-home/egnn/qm9/utils.py
+Description: 
+
+Copyright (c) 2022 by haoqiang haoqiang@mindrank.ai, All Rights Reserved. 
+'''
 import torch
 
 def compute_mean_mad(dataloaders, label_property):
@@ -21,6 +31,7 @@ def get_adj_matrix(n_nodes, batch_size, device):
                     for j in range(n_nodes):
                         rows.append(i + batch_idx*n_nodes)
                         cols.append(j + batch_idx*n_nodes)
+            
 
     else:
         edges_dic[n_nodes] = {}

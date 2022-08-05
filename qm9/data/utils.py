@@ -3,6 +3,11 @@ import numpy as np
 
 import logging
 import os
+import sys
+
+from icecream import ic
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(base_dir)
 
 from torch.utils.data import DataLoader
 from qm9.data.dataset import ProcessedDataset
@@ -60,9 +65,8 @@ def initialize_datasets(args, datadir, dataset, subset=None, splits=None,
     # Load downloaded/processed datasets
     datasets = {}
     for split, datafile in datafiles.items():
-        with np.load(datafile) as f:
-            datasets[split] = {key: torch.from_numpy(
-                val) for key, val in f.items()}
+        with np.load(os.path.join(base_dir, datafile)) as f:
+            datasets[split] = {key: torch.from_numpy(val) for key, val in f.items()}
 
     # Basic error checking: Check the training/test/validation splits have the same set of keys.
     keys = [list(data.keys()) for data in datasets.values()]
